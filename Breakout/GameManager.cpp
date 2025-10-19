@@ -22,7 +22,9 @@ void GameManager::initialize()
     _messagingSystem = new MessagingSystem(_window);
     _ball = new Ball(_window, 400.0f, this); 
     _powerupManager = new PowerupManager(_window, _paddle, _ball);
-    _ui = new UI(_window, _lives, this);
+    _ui = new UI(_window, _lives, this); \
+    screenShaker = new ScreenShaker();
+
 
     // Create bricks
     _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
@@ -47,7 +49,8 @@ void GameManager::update(float dt)
     }
     // pause and pause handling
     if (_pauseHold > 0.f) _pauseHold -= dt;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        //Escape might be more decent for pausing a game (easier to reach)
     {
         if (!_pause && _pauseHold <= 0.f)
         {
@@ -85,6 +88,8 @@ void GameManager::update(float dt)
     _paddle->update(dt);
     _ball->update(dt);
     _powerupManager->update(dt);
+    screenShaker->update(dt);
+    _window->setPosition(screenShaker->getScreenPosition());
 }
 
 void GameManager::loseLife()
@@ -92,7 +97,8 @@ void GameManager::loseLife()
     _lives--;
     _ui->lifeLost(_lives);
 
-    // TODO screen shake.
+    //Shaking the screen when the player loses a life
+    screenShaker->shakeScreen(1, 1);
 }
 
 void GameManager::render()
