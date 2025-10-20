@@ -13,6 +13,8 @@ GameManager::GameManager(sf::RenderWindow* window)
     _masterText.setPosition(50, 400);
     _masterText.setCharacterSize(48);
     _masterText.setFillColor(sf::Color::Yellow);
+
+    _window->setMouseCursorVisible(false);
 }
 
 void GameManager::initialize()
@@ -110,8 +112,13 @@ void GameManager::update(float dt)
     }
 
     // move paddle
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
+    // 
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
+
+
+    //moving with mouse
+    _paddle->moveWithMouse(dt);
 
     // update everything 
     _paddle->update(dt);
