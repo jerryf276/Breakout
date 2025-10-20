@@ -4,7 +4,6 @@
 
 //Taken from https://old.reddit.com/r/gamedev/comments/1bgbv9r/programming_screen_shake_is_easy/, Created by UpbeatGalaxy, Created on March 16 2024 (Accessed: 19/10/25)
 //anything NOT taken from the link in this class is my work
-
 class ScreenShaker
 {
 public:

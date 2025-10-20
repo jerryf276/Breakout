@@ -36,15 +36,44 @@ void GameManager::update(float dt)
     _ui->updatePowerupText(_powerupInEffect);
     _powerupInEffect.second -= dt;
     
+    screenShaker->update(dt);
+    _window->setPosition(screenShaker->getScreenPosition());
 
     if (_lives <= 0)
     {
-        _masterText.setString("Game over.");
+        _masterText.setString("Game over. Press R to retry.");
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+            delete _ball;
+            delete _brickManager;
+            delete _powerupManager;
+            _ball = new Ball(_window, 400.0f, this);
+            _brickManager = new BrickManager(_window, this);
+            _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
+            _powerupManager = new PowerupManager(_window, _paddle, _ball);
+
+            _lives = 3;
+            _ui->addLivesBack();
+            _masterText.setString("");
+        }
         return;
     }
     if (_levelComplete)
     {
-        _masterText.setString("Level completed.");
+        _masterText.setString("Level completed. Press R to play again.");
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+            delete _ball;
+            delete _brickManager;
+            delete _powerupManager;
+            _ball = new Ball(_window, 400.0f, this);
+            _brickManager = new BrickManager(_window, this);
+            _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
+            _powerupManager = new PowerupManager(_window, _paddle, _ball);
+
+            _lives = 3;
+            _ui->addLivesBack();
+            _masterText.setString("");
+            _levelComplete = false;
+        }
         return;
     }
     // pause and pause handling
@@ -88,8 +117,6 @@ void GameManager::update(float dt)
     _paddle->update(dt);
     _ball->update(dt);
     _powerupManager->update(dt);
-    screenShaker->update(dt);
-    _window->setPosition(screenShaker->getScreenPosition());
 }
 
 void GameManager::loseLife()
