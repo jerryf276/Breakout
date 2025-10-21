@@ -15,6 +15,8 @@ public:
 
 	void updatePowerupText(std::pair<POWERUPS, float>);
 	void lifeLost(int lives);
+
+	//readding lives once the player restarts the game
 	void addLivesBack();
 	void render();
 

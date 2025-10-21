@@ -6,10 +6,6 @@
 #include "Ball.h"
 #include <vector>
 
-
-//STARTED 3:35 am on 19/20/25
-//Stopped 4:10 am on 19/10/25
-
 //#include "PowerupFireBall.h"
 //Including a class that's supposed to be derived from the base class shouldn't be allowed, this is what is causing the issue here
 

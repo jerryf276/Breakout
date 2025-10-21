@@ -21,11 +21,18 @@ public:
     void levelComplete();
     void powerupEffect(POWERUPS pu, float t);
 
+    //comparing for sorting the vector to descending order
+    static bool comp(int a, int b);
+
     Paddle* getPaddle() const;
     BrickManager* getBrickManager() const;
     PowerupManager* getPowerupManager() const;
     sf::RenderWindow* getWindow() const;
     UI* getUI() const;
+
+    void addScore(int);
+    void updateScoreText();
+    int getScore();
 
 
 private:
@@ -35,10 +42,26 @@ private:
     float _timeLastPowerupSpawned;
     int _lives;
     bool _levelComplete;
+    bool gameFinished = false;
+    int score = 0;
     std::pair<POWERUPS, float> _powerupInEffect;
 
     sf::Font _font;
     sf::Text _masterText;
+    sf::Text scoreText;
+    sf::Text leaderboardText;
+
+    std::vector<sf::Text> leaderboardScores;
+    std::vector<int> storedScores;
+
+ /*   struct leaderboardInfo {
+        int score;
+        std::string name;
+    };*/
+
+  /*  std::vector<leaderboardInfo> leaderboardScores;*/
+
+    sf::RectangleShape leaderboardBox;
 
     sf::RenderWindow* _window;
     Paddle* _paddle;
