@@ -44,10 +44,11 @@ fire ball (green)
 * Added ability to restart the game (took 25 minutes)
 * Implemented mouse movement for the pad (took 10 minutes)
 * Added a leaderboard (Took 2 hours)
+* Replaced the time left with a guage that decreases based on the time left (took 45 minutes)
 
 
 
-TOTAL TIME: 3 hours and 9 minutes
+TOTAL TIME: 3 hours and 55 minutes
 
 
 
