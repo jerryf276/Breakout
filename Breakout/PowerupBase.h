@@ -33,6 +33,7 @@ protected: // Protected so derived classes can access these members
 
     // Game logic
     float _time;
+    float maxTime = 5;
     bool _isAlive;
     Paddle* _paddle;
     Ball* _ball;

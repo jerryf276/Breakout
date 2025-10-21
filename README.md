@@ -1,6 +1,6 @@
 # Breakout
 
-W Kavanagh & N Merchant. Summer 2024 
+W Kavanagh \& N Merchant. Summer 2024
 
 ## controls
 
@@ -27,9 +27,29 @@ fire ball (green)
 * GameLoop
 * Better ball physics (Box2D)
 * Leaderboards
-* More ball types (e.g., multiball, sticky ball [where you shoot the ball from the paddle every time], tiny ball, big ball, brick-tracking ball)
+* More ball types (e.g., multiball, sticky ball \[where you shoot the ball from the paddle every time], tiny ball, big ball, brick-tracking ball)
 * Sounds with increasing tone between bounces.
 * Implement commentary with calls to an LLM such as LLama
 
 # Time Details and Changelist
+
 <Add information to this section about the time you've taken for this task along with a professional changelist.>
+
+
+
+* Fixed compiler error (Took 3 minutes)
+* Changed pause button to escape (took 1 minute)
+* Made rng seed based on the time since the seed would be the same every time you ran it (1 minute)
+* Implemented Screen Shaking when a life is lost (took 30 minutes)
+* Added ability to restart the game (took 25 minutes)
+* Implemented mouse movement for the pad (took 10 minutes)
+* Added a leaderboard (Took 2 hours)
+
+
+
+TOTAL TIME: 3 hours and 9 minutes
+
+
+
+
+

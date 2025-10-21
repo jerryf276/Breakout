@@ -27,9 +27,16 @@ private:
 	sf::Font _font;
 	sf::Text _powerupText;
 
+	 
+	sf::RectangleShape timeLeftBar;
+	sf::RectangleShape timeElapsedBar;
+
 	std::vector<sf::CircleShape> _lives;
 
 	static constexpr float LIFE_RADIUS = 15.0f;
 	static constexpr float LIFE_PADDING = 20.0f;
+
+	int barSize = 200;
+	bool powerupActivated = false;
 };
 
